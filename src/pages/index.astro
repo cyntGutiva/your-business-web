@@ -25,3 +25,28 @@ import InfoPersuade from '../components/InfoPersuade.astro';
         <p>&copy; 2026 YourBusinessWeb Chile.</p>
     </footer>
 </Layout>
+
+<!-- Seleccionador de plan -->
+ <script is:inline>
+  // Usamos un pequeño delay para asegurar que el DOM cargó bien
+  document.addEventListener('DOMContentLoaded', () => {
+    const planButtons = document.querySelectorAll('.plan-btn');
+    const planSelect = document.getElementById('plan-select');
+
+    planButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const seleccionado = button.getAttribute('data-plan');
+        
+        if (planSelect && seleccionado) {
+          planSelect.value = seleccionado;
+          
+          // Efecto visual: Resaltar el select brevemente
+          planSelect.style.borderColor = '#22d3ee'; // Color cyan-400
+          setTimeout(() => {
+            planSelect.style.borderColor = '#334155'; // Color slate-700
+          }, 1500);
+        }
+      });
+    });
+  });
+</script>

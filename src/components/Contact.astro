@@ -4,34 +4,111 @@
             <h2 class="text-3xl font-bold text-white mb-2">Despega tu negocio hoy</h2>
             <p class="text-slate-400">Completa el formulario y te contactaremos en menos de 24 horas.</p>
         </div>
-        <form action="#" class="space-y-6">
+        <form id="contact-form" action="https://formspree.io/f/xreyonae" method="POST" class="space-y-6">
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-bold text-slate-300 mb-2">Nombre</label>
-                    <input type="text" placeholder="Ej: Juan Pérez" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    <input type="text" name="name" placeholder="Ej: Juan Pérez" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
                 </div>
                 <div>
                     <label class="block text-sm font-bold text-slate-300 mb-2">Nombre del Negocio</label>
-                    <input type="text" placeholder="Ej: Barbería El Estilo" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                    <input type="text" name="business-name" placeholder="Ej: Barbería El Estilo" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500"required>
                 </div>
             </div>
             <div>
                 <label class="block text-sm font-bold text-slate-300 mb-2">Correo Electrónico</label>
-                <input type="email" placeholder="nombre@gmail.com" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500">
+                <input type="email" name="email" placeholder="nombre@gmail.com" class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" required>
+            </div>
+            <div>
+                <label for="plan-select" class="block text-sm font-bold text-slate-300 mb-2">
+                    Plan de interés
+                </label>
+                <div class="relative">
+                    <select 
+                    id="plan-select" 
+                    name="plan" 
+                    class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 appearance-none cursor-pointer"
+                    required
+                    >
+                        <option value="" disabled selected>Selecciona un plan</option>
+                        <option value="esencial" class="bg-slate-800">Web Esencial</option>
+                        <option value="pro" class="bg-slate-800">Web Pro</option>
+                        <option value="mantencion" class="bg-slate-800">Personalizado</option>
+                    </select>
+                    
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+                    <svg class="h-4 w-4 fill-current" viewBox="0 0 20 20">
+                        <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
+                    </svg>
+                    </div>
+                </div>
             </div>
             <div>
                 <label class="block text-sm font-bold text-slate-300 mb-2">¿Cómo podemos ayudarte?</label>
-                <textarea rows="4" placeholder="Cuéntanos brevemente sobre tu negocio..." class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500"></textarea>
+                <textarea rows="4" name="message" placeholder="Cuéntanos brevemente sobre tu negocio..." class="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-cyan-500" required></textarea>
             </div>
-            <button type="submit" class="w-full bg-cyan-500 text-slate-950 font-bold py-4 rounded-xl hover:bg-cyan-400 transition transform hover:scale-[1.02]">Enviar Mensaje</button>
+            <button type="submit" id="submit-btn" class="w-full bg-cyan-500 text-slate-950 font-bold py-4 rounded-xl hover:bg-cyan-400 transition transform hover:scale-[1.02]">Enviar Mensaje</button>
         </form>
+
+        <div id="success-message" class="hidden text-center p-8 bg-green-900/20 border border-green-500 rounded-xl">
+            <h3 class="text-2xl font-bold text-green-400">¡Mensaje enviado!</h3>
+            <p class="text-slate-300 mt-2">Nos pondremos en contacto contigo muy pronto.</p>
+        </div>
         
         <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col items-center">
             <p class="text-sm text-slate-600 mb-4 font-medium uppercase tracking-widest">¿Prefieres conversar?</p>
-            <a href="https://wa.me/56939356402" class="flex items-center gap-3 bg-emerald-500 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-600 transition">
+            <a href="https://wa.me/56939356402" class="flex items-center gap-3 bg-emerald-500 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-600 transition" target="_blank" rel="noopener noreferrer">
                 <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.651zm6.59-4.819c1.414.843 2.827 1.395 4.544 1.395 5.034 0 9.127-4.09 9.129-9.124.002-5.033-4.09-9.127-9.127-9.127-5.035 0-9.124 4.094-9.127 9.127 0 1.701.56 3.123 1.415 4.536l-.991 3.626 3.657-.96z"></path></svg>
                 Hablar por WhatsApp
             </a>
         </div>
     </div>
 </section>
+
+<script>
+    const form = document.getElementById('contact-form') as HTMLFormElement | null;
+    const successMessage = document.getElementById('success-message') as HTMLDivElement | null;
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+    if (!submitBtn) return;
+    if (!successMessage) return;
+
+    if (form) {
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault(); // Evita que abra la página de Formspree
+            
+            submitBtn.innerText = "Enviando...";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                    'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    // Ocultamos el formulario y mostramos el mensaje de éxito
+                    form.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+                } else {
+                    const data = await response.json();
+                    alert(data.errors ? data.errors[0].message : "Error al enviar");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Enviar Mensaje";
+                }
+            } catch (error) {
+                alert("Error de conexión. Inténtalo de nuevo.");
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+</script>
+
+<style>
+  .hidden { display: none; }
+</style>
