@@ -69,8 +69,6 @@
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
     const successMessage = document.getElementById('success-message') as HTMLDivElement | null;
     const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement | null;
-    if (!submitBtn) return;
-    if (!successMessage) return;
 
     if (form) {
         form.addEventListener('submit', async (e) => {
