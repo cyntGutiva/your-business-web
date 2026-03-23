@@ -37,6 +37,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}`;
                     required
                     >
                         <option value="" disabled selected>Selecciona un plan</option>
+                        <option value="basico" class="bg-slate-800">Web Básica</option>
                         <option value="esencial" class="bg-slate-800">Web Esencial</option>
                         <option value="pro" class="bg-slate-800">Web Pro</option>
                         <option value="mantencion" class="bg-slate-800">Personalizado</option>
@@ -64,7 +65,7 @@ const whatsappLink = `https://wa.me/${whatsappNumber}`;
         <div class="mt-8 pt-8 border-t border-slate-800 flex flex-col items-center">
             <p class="text-sm text-slate-600 mb-4 font-medium uppercase tracking-widest">¿Prefieres conversar?</p>
             <a href={whatsappLink} class="flex items-center gap-3 bg-emerald-500 text-white px-8 py-3 rounded-full font-bold hover:bg-emerald-600 transition" target="_blank" rel="noopener noreferrer">
-                <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.417-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.305 1.651zm6.59-4.819c1.414.843 2.827 1.395 4.544 1.395 5.034 0 9.127-4.09 9.129-9.124.002-5.033-4.09-9.127-9.127-9.127-5.035 0-9.124 4.094-9.127 9.127 0 1.701.56 3.123 1.415 4.536l-.991 3.626 3.657-.96z"></path></svg>
+                <i class="fab fa-whatsapp"></i>
                 Hablar por WhatsApp
             </a>
         </div>

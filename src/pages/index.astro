@@ -8,9 +8,12 @@ import Pricing from '../components/Pricing.astro';
 import Contact from '../components/Contact.astro';
 import Portfolio from '../components/Portfolio.astro';
 import InfoPersuade from '../components/InfoPersuade.astro';
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
 ---
 
-<Layout title="YourBusinessWeb | Web para PYMES Chile">
+<Layout title="YourBusinessWeb | Diseño de Landing Pages y Páginas Web en Chile"
+  description="Creamos sitios web ultra-rápidos, autoadministrables y optimizados para Google. Potencia tu PYME con landing pages de alto impacto. ¡Cotiza tu proyecto hoy!"
+  image="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800">
     <Navbar />
     <main>
         <Hero />
@@ -21,6 +24,9 @@ import InfoPersuade from '../components/InfoPersuade.astro';
         <InfoPersuade />
         <Contact />
     </main>
+    <a href={`https://wa.me/${whatsappNumber}`} class="fixed bottom-5 right-5 bg-[#25d366] w-[60px] h-[60px] rounded-full flex items-center justify-center text-[30px] text-white shadow-lg z-[1000]" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-whatsapp"></i>
+    </a>
     <footer class="py-12 bg-slate-950 border-t border-slate-800 text-center text-slate-600 text-sm">
         <p>&copy; 2026 YourBusinessWeb Chile.</p>
     </footer>

@@ -1,0 +1,128 @@
+---
+const whatsappNumber = import.meta.env.PUBLIC_WHATSAPP_NUMBER;
+
+// Datos de las preguntas para mantener el código limpio
+const faqs = [
+  {
+    question: "¿Cuánto tiempo toma diseñar mi página web?",
+    answer:
+      "Para el Plan Básico, entregamos tu landing page en solo 3 días hábiles. Proyectos Pro con carrito de compras toman de 7 a 10 días hábiles.",
+  },
+  {
+    question: "¿Mi página será realmente rápida?",
+    answer:
+      "Sí. Desarrollamos con Astro, lo que garantiza cargas en menos de 1 segundo, mejorando tu posicionamiento en Google y la experiencia de tus clientes.",
+  },
+  {
+    question: "¿Podré cambiar los precios o fotos yo mismo?",
+    answer:
+      "¡Absolutamente! En nuestros planes Esencial y Pro, incluimos un panel autoadministrable intuitivo para que actualices precios y stock sin riesgo de romper el diseño.",
+  },
+  {
+    question: "¿Incluye correos corporativos?",
+    answer:
+      "Sí, configuramos tus correos profesionales (ej: contacto@tuempresa.cl) a través de HostGator sin costos adicionales por usuario.",
+  },
+];
+---
+
+<main class="bg-slate-900 text-white min-h-screen py-20 px-4">
+  <div class="max-w-3xl mx-auto">
+    <div class="text-center mb-16">
+      <h1
+        class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent italic"
+      >
+        Preguntas Frecuentes
+      </h1>
+      <p class="text-slate-400 text-lg">
+        Todo lo que necesitas saber para digitalizar tu negocio con
+        YourBusinessWeb.
+      </p>
+    </div>
+
+    <div class="space-y-4">
+      {
+        faqs.map((faq) => (
+          <details class="group bg-slate-800 border border-slate-700 rounded-2xl p-6 [&_summary::-webkit-details-marker]:hidden cursor-pointer hover:border-cyan-500/50 transition-colors">
+            <summary class="flex items-center justify-between gap-4">
+              <h2 class="text-xl font-semibold text-slate-200 group-open:text-cyan-400 transition-colors">
+                {faq.question}
+              </h2>
+              <span class="text-cyan-400 transition-transform duration-300 group-open:rotate-180">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </span>
+            </summary>
+            <div class="mt-4 text-slate-400 leading-relaxed border-t border-slate-700 pt-4">
+              {faq.answer}
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <div
+      class="mt-20 p-8 bg-gradient-to-br from-slate-800 to-slate-900 rounded-3xl border border-cyan-500/30 text-center"
+    >
+      <h3 class="text-2xl font-bold mb-4">¿Aún tienes dudas?</h3>
+      <p class="mb-6 text-slate-400">
+        Escríbenos directamente y te asesoramos de forma personalizada.
+      </p>
+      <a
+        href={`https://wa.me/${whatsappNumber}`}
+        class="fixed bottom-5 right-5 bg-[#25d366] w-[60px] h-[60px] rounded-full flex items-center justify-center text-[30px] text-white shadow-lg z-[1000]"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      Hablar por WhatsApp
+    </div>
+  </div>
+</main>
+
+<style>
+  /* Efecto de suavizado al abrir detalles */
+  details div {
+    animation: fadeIn 0.3s ease-out;
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+
+<script type="application/ld+json" is:inline>
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo toma diseñar mi página web?",
+            "acceptedAnswer": {
+            "text": "Entregamos tu landing page desde 3 días hábiles usando tecnología Astro para máxima velocidad."
+            }
+        }
+        // ... el resto de tus preguntas ...
+        ]
+    }
+</script>
