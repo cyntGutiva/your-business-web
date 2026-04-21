@@ -1,9 +1,9 @@
-name: Deploy to HostGator
+name: Deploy Website
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build-and-deploy:
@@ -13,19 +13,20 @@ jobs:
       - name: Checkout del código
         uses: actions/checkout@v4
 
+      # --- PASO NUEVO: Configurar Node.js v22 ---
       - name: Setup Node.js
-              uses: actions/setup-node@v4
-              with:
-                node-version: '22'
-                cache: 'npm'
-                
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm" # Esto acelera las futuras subidas al guardar los módulos de node
+
       - name: Instalar dependencias
         run: npm install
 
       - name: Construir el proyecto (Generar dist)
         run: npm run build
 
-      - name: Deploy via FTP
+      - name: Desplegar vía FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
