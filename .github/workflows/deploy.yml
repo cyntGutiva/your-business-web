@@ -25,6 +25,8 @@ jobs:
 
       - name: Construir el proyecto (Generar dist)
         run: npm run build
+        env:
+          PUBLIC_WHATSAPP_NUMBER: ${{ secrets.PUBLIC_WHATSAPP_NUMBER }}
 
       - name: Desplegar vía FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -33,5 +35,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.FTP_SERVER_DIR }}
-          PUBLIC_WHATSAPP_NUMBER: ${{ secrets.PUBLIC_WHATSAPP_NUMBER }}
           local-dir: ./dist/
